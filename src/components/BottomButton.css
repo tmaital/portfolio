@@ -1,0 +1,128 @@
+.bottom-button-container {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  color: white;
+  cursor: pointer;
+  width: 200px;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.bb-fade-in {
+  transform: translateY(200%);
+  animation: slideInFromBottom 0.75s ease-out 0s forwards;
+}
+
+.bb-fade-out {
+  transform: translateY(0);
+  animation: slideOutFromBottom 0.75s ease-out 0s forwards;
+}
+
+.bottom-button-container h2 {
+  font-weight: 400;
+  font-size: 15pt;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.bottom-button-container:hover {
+  opacity: 0.7;
+}
+
+/* Bouncing Downwards Chevron */
+
+.bb-down-arrow {
+  color: white;
+  font-size: 20pt;
+  cursor: pointer;
+}
+.bb-bounce {
+  -moz-animation: bounce 3s infinite;
+  -webkit-animation: bounce 3s infinite;
+  animation: bounce 3s infinite;
+  color: white;
+}
+@-moz-keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+@-webkit-keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+
+/* Button Fade-In */
+
+@keyframes slideInFromBottom {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutFromBottom {
+  to {
+    transform: translateY(200%);
+  }
+}
+
+/* RESPONSIVE QUERIES */
+
+@media screen and (max-width: 500px) {
+  .bottom-button-container {
+    display: none;
+  }
+}
