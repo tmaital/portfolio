@@ -1,6 +1,6 @@
 .app-container{
   display: flex;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background: radial-gradient(ellipse at bottom, #0e141b 0%, #000000 100%);
   overflow: hidden;
@@ -100,6 +100,10 @@
   margin-bottom: 4px;
 }
 
+.app-navbar a:hover{
+color: white;
+}
+
 .app-navbar .navbar-active{
   color: white;
 }
@@ -144,7 +148,7 @@ a:nth-child(4).navbar-active~.app-navbar-animated-selector{
     min-width: 0;
     width: 100%;
     box-sizing: border-box;
-
+    position: absolute;  
   }
 
   .app-navbar a{
@@ -183,25 +187,68 @@ a:nth-child(4).navbar-active~.app-navbar-animated-selector{
 @media screen and (max-width: 500px) {
   .app-container{
     flex-direction: column-reverse;
+    position: relative;
   }
 
   .app-navbar{
-    margin: 0 auto -6px;  
-    box-sizing: border-box;
-    padding-top: 2vw;
-    padding-bottom: 2vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: rgb(255, 255, 255);
+    margin: 0;
+    height: auto;
+    width: 100%;
+    border-radius: 2px 2px 0px 0px;
+    transition: all 2s ease;
+
+  }
+
+  .app-navbar a{
+    justify-self: center;
+    margin: 0;
   }
 
   .app-navbar .navbar-active{
-    color: black;
+    color: rgb(255, 75, 75);
+    font-weight: bold;
+    border-radius: 2px 2px 0px 0px;
+    transition: all 1s ease;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+
+  .app-navbar .navbar-active:hover{
     background: rgb(255, 75, 75);
-    padding: 20px;
-    border-radius: 2px;
-    transition: all .5s ease 0s;
   }
 
   .app-navbar-animated-selector{
     display: none;
   }
 }
+
+/* 
+position: relative;
+width: 70%;
+display: flex;
+justify-content: space-around;
+align-items: center;
+max-width: 1100px;
+min-width: 900px; 
+
+
+.app-navbar a{
+  font-size: 30pt;
+  color: rgb(172, 172, 172);
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 4px;
+  justify-self: center;
+  align-self: center;
+}
+*/

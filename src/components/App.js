@@ -19,21 +19,7 @@ import Contact from "./Contact"
 function App() {
 
   const [page, setPage] = useState("home")
-  const [scrollRedirect, setScrollRedirect] = useState("/home")
-  const pagesArr = ["/home","/projects","/about","/contact"]
-
-
-  useEffect(() => {
-    window.addEventListener("wheel", event => handleScroll(event))
-  }, [])
-
-  const handleScroll = (event) => {
-    
-    console.log("operational:")
-    console.info(Math.sign(event.deltaY))
-    setScrollRedirect(pagesArr[])
-  }
-
+  
   return (
     <div className="app-container">
       <div className='app-background-stars'></div>
@@ -48,11 +34,11 @@ function App() {
           <div className="app-navbar-animated-selector app-start-selector"></div>
         </div>
         <Switch>
-          <Route exact path="/home" render={(props) => <Home {...props} setPage={setPage} />}/>
+          <Route exact path="/home" render={(props) => <Home {...props} setPage={setPage}  />}/>
           <Route exact path="/projects" render={(props) => <Projects {...props} setPage={setPage} />}/>
           <Route exact path="/about" render={(props) => <About {...props} setPage={setPage} />}/>
           <Route exact path="/contact" render={(props) => <Contact {...props} setPage={setPage} />}/>
-          <Redirect to={scrollRedirect} />
+          <Redirect to="/home" />
         </Switch>
       </BrowserRouter>
     </div>

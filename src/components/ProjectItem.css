@@ -1,0 +1,211 @@
+.project-item-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 350px;
+}
+
+  
+/*  SCREENSHOT  */
+
+.project-screenshot {
+    filter: grayscale(100%) contrast(1) blur(0px);
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    transition: 1s all;
+    border: white solid 3px;
+    border-radius: 9px;
+    box-sizing: border-box;
+}
+
+.project-screenshot:hover{
+    filter: grayscale(30%) contrast(1) blur(0px);
+}
+
+
+/*  BUTTONS  */
+
+.project-item-buttons{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+
+/*  CODE BUTTON  */
+
+.project-item-icons-buttons-code{
+    display: flex;
+    background: white;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    z-index: 100;
+    transition: ease-in-out 0.2s;
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+
+.project-item-icons-buttons-code::before{
+    font-weight: normal;
+    display: none;
+    content: "Code";
+    width: fit-content;
+    padding-right: 10px;
+    padding-left: 5px;
+}
+
+.project-item-icons-buttons-code:hover{
+    font-weight: bolder;
+    width: fit-content;
+    padding-right: 15px;
+    padding-left: 10px;
+}
+
+.project-item-icons-buttons-code:active{
+    background: rgb(172, 172, 172);
+}
+
+.project-item-icons-buttons-code:hover::before{
+    display: flex;
+}
+
+
+/*  LINK BUTTON  */
+
+.project-item-icons-buttons-link{
+    display: flex;
+    background: white;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    z-index: 100;
+    transition: ease-in-out 0.2s;
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+
+.project-item-icons-buttons-link::before{
+    font-weight: normal;
+    display: none;
+    content: "View live";
+    width: fit-content;
+    padding-right: 10px;
+    padding-left: 5px;
+}
+
+.project-item-icons-buttons-link:hover{
+    font-weight: bolder;
+    width: fit-content;
+    padding-right: 15px;
+    padding-left: 10px;
+}
+
+.project-item-icons-buttons-link:active{
+    background: rgb(172, 172, 172);
+}
+
+.project-item-icons-buttons-link:hover::before{
+    display: flex;
+}
+
+/*  PROJECT DETAILS MODAL  */
+
+.project-modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeInElement 0.5s forwards;
+}
+
+.project-modal-container-window-parent{
+    display: flex;
+    position: relative;
+    width: 90%;
+    height: 90%;
+    background: blue;
+}
+
+.project-modal-container-window{
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    display: flex;
+    background: #252121; /*REMOVE*/
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+.project-modal-container-close-button{
+    position: absolute;
+    top: 2.5%;
+    left: 93.5%;
+    cursor: pointer;
+    color:rgb(75, 75, 75);
+}
+
+@keyframes fadeInElement{
+    to{
+        opacity: 1;
+    }
+}
+/* RESPONSIVE QUERIES */
+
+@media screen and (max-width: 500px) {
+    .projects-items-container{
+        margin-right: -7px;
+    }
+
+    .project-item-icons-title-wrapper{
+        padding-top: 3px;
+    }
+
+    .project-item-icons-buttons-code{
+        font-weight: bolder;
+        width: fit-content;
+        padding-right: 15px;
+        padding-left: 10px;
+    }
+
+    .project-item-icons-buttons-link{
+        font-weight: bolder;
+        width: fit-content;
+        padding-right: 15px;
+        padding-left: 10px;
+    }
+
+    .project-item-icons-buttons-code::before{
+        display: flex;
+    }
+
+    .project-item-icons-buttons-link::before{
+        display: flex;
+    }
+    
+    .project-modal-container{
+        animation: 0.5s fadeInElement 0.5s forwards;
+    }
+}

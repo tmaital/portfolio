@@ -6,9 +6,19 @@
   align-items: center;
   position: relative;
   flex-direction: column;
+  padding-bottom: 75px;
+  box-sizing: border-box;
 }
 
 /* Typist - Text Animation */
+
+.home-typist-wrapper{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+}
 
 .home-typist {
   color: white;
@@ -36,27 +46,35 @@
 /* Projects Button */
 
 .home-projects-button {
-  display: none;
-  border: solid white 2px;
-  margin-top: 10px;
+  display: flex;
+  height: 60px;
+  width: 160px;
+  border: solid white 3px;
+  background: rgb(36, 36, 36);
   color: white;
-  padding: 10px 20px;
-  text-align: center;
-  background: linear-gradient(to right, white 50%, rgba(0, 0, 0, 0) 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all 0.5s ease;
-  cursor: pointer;
-  border-radius: 2px;
   font-size: 13pt;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
   transform: translateX(-200%);
   opacity: 0;
-  animation: slideInFromLeft 0.5s ease-in-out 6.5s forwards;
+  animation: slideInFromLeft 0.5s ease-in-out 7.4s forwards;
+  font-weight: bold;
+  text-transform: uppercase;
+  align-self: center;
+  margin-top: 40px;
 }
 
-.home-projects-button:focus {
-  background-position: left bottom;
-  color: black;
+.home-projects-button:hover{
+  background: rgb(36, 36, 36);
+  color: rgb(255, 255, 255);
+}
+
+.home-projects-button:active{
+  background: rgb(19, 19, 19);
+  color: rgb(219, 219, 219);
+  transform: scale(0.98);
 }
 
 @keyframes slideInFromLeft {
@@ -65,6 +83,7 @@
     transform: translateX(0);
   }
 }
+
 /* RESPONSIVE QUERIES */
 
 @media screen and (max-width: 500px) {
@@ -72,9 +91,21 @@
     justify-content: center;
   }
 
+  .home-typist-wrapper{
+    top: 25%;
+  }
+
   .home-typist {
     margin-top: 0;
     padding: 20px;
+  }
+
+  .home-typist-first {
+    font-size: 18pt;
+  }
+
+  .home-typist-second {
+    font-size: 13pt;
   }
 
   .home-projects-button {

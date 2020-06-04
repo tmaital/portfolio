@@ -6,4 +6,47 @@
     align-items: center;
     position: relative;
     flex-direction: column;
+    padding-bottom: 75px;
+    box-sizing: border-box;
   }
+
+.projects-items-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 350px);
+  gap: 30px;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 80%;
+  height: 90%;
+}
+
+/* RESPONSIVE QUERIES */
+
+@media screen and (max-width: 500px) {
+
+  .projects-items-container {
+    padding-top: calc((100vw - 350px)/2);
+    height: 100%;
+    width: 100vw;
+    gap: calc((100vw - 350px)/2);
+  }
+
+  .modal-container-window-login{
+    background: none;
+  }
+
+  .modal-close-button-login{
+    position: absolute;
+    top: 9%;
+    left: 87%;
+    cursor: pointer;
+    color:rgb(75, 75, 75);
+  }
+
+  .modal-form-container-login{
+    border-radius: 5px;
+  }
+
+  
+}
