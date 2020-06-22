@@ -1,10 +1,37 @@
 .project-item-container{
     display: flex;
-    flex-direction: column;
     position: relative;
-    width: 350px;
+    width: 340px; 
+    height: 210px;   
 }
 
+/* .project-item-container::after{
+    position:absolute;
+    content:"More Info...";
+    display:none;
+    width: fit-content; 
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 20px;
+    bottom: 11px;
+    right: 7px;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: white;
+} 
+
+.project-item-container:hover::after{
+    display:flex;
+}
+
+.project-item-container:hover .project-screenshot{
+    filter: grayscale(30%) contrast(1) blur(0px);
+    transform: scale(1.05);
+}
+
+*/
   
 /*  SCREENSHOT  */
 
@@ -14,16 +41,18 @@
     width: 100%;
     height: auto;
     opacity: 1;
-    transition: 1s all;
-    border: white solid 3px;
-    border-radius: 9px;
+    transition: 1s filter, 0.5s transform;
     box-sizing: border-box;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.3);
 }
 
 .project-screenshot:hover{
     filter: grayscale(30%) contrast(1) blur(0px);
+    transform: scale(1.05);
 }
-
 
 /*  BUTTONS  */
 
@@ -40,19 +69,19 @@
 
 .project-item-icons-buttons-code{
     display: flex;
-    background: white;
+    background: #4353ff;
     margin-top: 10px;
     align-items: center;
     justify-content: center;
     width: 30px;
     height: 30px;
-    border-radius: 20px;
     z-index: 100;
     transition: ease-in-out 0.2s;
     -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
     -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
     box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
     cursor: pointer;
+    color: white;
 }
 
 .project-item-icons-buttons-code::before{
@@ -84,19 +113,20 @@
 
 .project-item-icons-buttons-link{
     display: flex;
-    background: white;
+    background: #4353ff;
     margin-top: 10px;
     align-items: center;
     justify-content: center;
     width: 30px;
     height: 30px;
-    border-radius: 20px;
     z-index: 100;
     transition: ease-in-out 0.2s;
     -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
     -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
     box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.6);
     cursor: pointer;
+    color: white;
+
 }
 
 .project-item-icons-buttons-link::before{
@@ -123,6 +153,7 @@
     display: flex;
 }
 
+
 /*  PROJECT DETAILS MODAL  */
 
 .project-modal-container{
@@ -131,32 +162,37 @@
     left: 0;
     width:100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.95);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
     opacity: 0;
-    animation: fadeInElement 0.5s forwards;
+    animation: fadeInElement 0.2s forwards;
 }
 
 .project-modal-container-window-parent{
     display: flex;
     position: relative;
-    width: 90%;
-    height: 90%;
-    background: blue;
+    width: 85vw;
+    height: 80vh;
 }
 
 .project-modal-container-window{
     position: absolute;
-    top: 0; bottom: 0; left: 0; right: 0;
+    top: 25px; bottom: 0; left: 0; right: 0;
     display: flex;
-    background: #252121; /*REMOVE*/
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    flex-direction: column;
+    filter: blur(100px);
+    animation: blurTransition 0.3s forwards;
+}
+
+@keyframes blurTransition {
+    to {
+        filter: blur(0px);
+    }
 }
 
 .project-modal-container-close-button{
@@ -164,7 +200,49 @@
     top: 2.5%;
     left: 93.5%;
     cursor: pointer;
-    color:rgb(75, 75, 75);
+    color:rgb(255, 255, 255);
+}
+
+
+/*  MODAL BROWSER  */
+
+.project-modal-content-browser{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    height: 400px;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.project-modal-browser{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 550px;
+    border-radius: 10px;
+}
+
+.project-modal-url-placeholder{
+    position: absolute;
+    top: 33px;
+    left: 80px;
+    width: 300px;
+    font-size: 9px;
+    color: gray;
+}
+
+.project-modal-screenshot{
+    position: absolute;
+    top: 54px;
+    left: 0;
+    width: 550px;
+    border-left: #f2f2f2 solid 4px;
+    border-right: #f2f2f2 solid 4px;
+    border-bottom: #f2f2f2 solid 4px;
+    box-sizing: border-box;
+    border-radius: 0px 0px 10px 10px;
 }
 
 @keyframes fadeInElement{
@@ -172,6 +250,151 @@
         opacity: 1;
     }
 }
+
+
+/*  MODAL INFO  */
+
+.project-modal-content-info{
+    display: flex;
+    flex-direction: column;
+    margin-left: -40px;
+    margin-bottom: 80px;
+    z-index: 100;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 550px;
+    height: 400px;
+}
+
+.project-modal-content-title{
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.project-modal-content-icons{
+    display: flex;
+    margin: 20px;
+}
+
+.project-modal-content-icons img{
+    width: 30px;
+    margin-left: 15px;
+}
+
+.project-modal-content-description{
+    color: white;
+    background: rgb(32, 32, 32);
+    width: 600px;
+    height: 130px;
+    border-radius: 10px;
+    padding: 30px;
+    box-sizing: border-box;
+    justify-items: center;
+    -webkit-box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.5);
+}
+
+/*  MODAL BUTTONS  */
+
+.project-modal-buttons{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 18px;
+    left: 15px;
+}
+
+
+/*  MODAL CODE BUTTON  */
+
+.project-modal-icons-buttons-code{
+    display: flex;
+    background: white;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 30px;
+    border-radius: 20px;
+    z-index: 100;
+    transition: ease-in-out 0.2s;
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+    padding-right: 15px;
+    padding-left: 10px;
+}
+
+.project-modal-icons-buttons-code::before{
+    content: "Code";
+    font-weight: normal;
+    display: flex;
+    width: fit-content;
+    padding-right: 10px;
+    padding-left: 5px;
+}
+
+.project-modal-icons-buttons-code:hover{
+    background: rgb(230, 230, 230);
+
+}
+
+.project-modal-icons-buttons-code:active{
+    background: rgb(172, 172, 172);
+}
+
+.project-modal-icons-buttons-code:hover::before{
+    display: flex;
+}
+
+
+/*  LINK BUTTON  */
+
+.project-modal-icons-buttons-link{
+    display: flex;
+    font-weight: bold;
+    background: white;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 30px;
+    border-radius: 20px;
+    z-index: 100;
+    transition: ease-in-out 0.2s;
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+    padding-right: 15px;
+    padding-left: 10px;
+}
+
+.project-modal-icons-buttons-link::before{
+    font-weight: normal;
+    display: flex;
+    content: "View live";
+    width: fit-content;
+    padding-right: 10px;
+    padding-left: 5px;
+}
+
+.project-modal-icons-buttons-link:hover{
+    background: rgb(230, 230, 230);
+}
+
+.project-modal-icons-buttons-link:active{
+    background: rgb(172, 172, 172);
+}
+
+.project-modal-icons-buttons-link:hover::before{
+    display: flex;
+}
+
 /* RESPONSIVE QUERIES */
 
 @media screen and (max-width: 500px) {
@@ -203,9 +426,33 @@
 
     .project-item-icons-buttons-link::before{
         display: flex;
+    } 
+
+    /* MODAL */
+
+    .project-modal-container-window{
+        flex-direction: column;
+        height: 100%;
     }
-    
-    .project-modal-container{
-        animation: 0.5s fadeInElement 0.5s forwards;
+
+    .project-modal-content-browser{
+        transform: scale(0.6);
     }
+
+    .project-modal-content-info{
+        margin: 0;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .project-modal-content-title{
+        font-size: 25px;
+    }
+
+    .project-modal-content-description{
+        width: auto;
+        height: fit-content;
+        margin-bottom: 20px;
+    }
+
 }

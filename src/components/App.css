@@ -1,15 +1,55 @@
 .app-container{
   display: flex;
-  height: 100%;
+  height: 100vh;
   width: 100vw;
-  background: radial-gradient(ellipse at bottom, #0e141b 0%, #000000 100%);
+  /* background: radial-gradient(ellipse at bottom, #0e141b 0%, #000000 100%); */
+  background: #151b29;
   overflow: hidden;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/*  Header  */
+
+.app-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0px 5rem;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  z-index: 100000;
+}
+
+.app-logo{
+  width: 100px;
+  position: relative;
+  height: 43px;
+}
+
+.app-logo h1{
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  left: 0;
+}
+
+.app-logo div{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #4353ff;
+  height: 20px;
+  width: 70px;
 }
 
 /* Stars - Animated Background */
 
-.app-background-stars {
+/* .app-background-stars {
   width: 1px;
   height: 1px;
   background: transparent;
@@ -73,31 +113,28 @@
   to {
     transform: translateY(-2000px);
   }
-}
+} */
 
 /* Navigation Bar */
 
 .app-navbar{
-  margin: 40px auto 0;
   height: fit-content;
   position: relative;
-  width: 70%;
+  width: fit-content;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  max-width: 1100px;
-  min-width: 900px;
 }
 
 .app-navbar a{
-  font-size: 30pt;
+  font-size: 1em;
   color: rgb(172, 172, 172);
   text-decoration: none;
   text-transform: uppercase;
   position: relative;
-  z-index: 1;
   display: flex;
-  margin-bottom: 4px;
+  padding: 35px 25px;
+  z-index: 1;
 }
 
 .app-navbar a:hover{
@@ -110,81 +147,59 @@ color: white;
 
 .app-navbar-animated-selector{
   position: absolute;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
+  height: 100%;
   top: 50;
   z-index: 0;
-  background: #FB5757;
-  transition: all .5s ease 0s;
+  background: #4353ff;
+  transition: all .7s ease 0s;
 }
 
 a:nth-child(1).navbar-active~.app-navbar-animated-selector{
-  left:1%;
+  left:0%;
+  width: 101.47px;
 }
 
 a:nth-child(2).navbar-active~.app-navbar-animated-selector{
-  left:22.4%;
+  left:21.8%;
+  width: 129.52px;
+
 }
 
 a:nth-child(3).navbar-active~.app-navbar-animated-selector{
-  left:50.7%;
+  left:49.75%;
+  width: 105.81px;
 }
 
 a:nth-child(4).navbar-active~.app-navbar-animated-selector{
-  left:73.2%;
+  left:72.6%;
+  width: 127.6px;
 }
-
-/* Mobile Menu */
 
 
 
 /* RESPONSIVE QUERIES */
 
-@media screen and (max-width: 1000px) {
-
-  .app-navbar{
-    margin: 40px auto 0;  
-    min-width: 0;
-    width: 100%;
-    box-sizing: border-box;
-    position: absolute;  
+@media screen and (max-width: 800px) {
+  .app-logo{
+    display: none;
   }
 
-  .app-navbar a{
-    font-size: 3vw;
-    padding: 20px;
+  .app-header{
+    justify-content: center;
   }
-
-  .app-navbar-animated-selector{
-    height: 1.5vw;
-    width: 1.5vw;
-  }
-
-  .app-navbar .navbar-active{
-    padding: 20px;
-    border-radius: 2px;
-  }
-
-  a:nth-child(1).navbar-active~.app-navbar-animated-selector{
-    left:4%;
-  }
-  
-  a:nth-child(2).navbar-active~.app-navbar-animated-selector{
-    left:26.5%;
-  }
-  
-  a:nth-child(3).navbar-active~.app-navbar-animated-selector{
-    left:53.7%;
-  }
-  
-  a:nth-child(4).navbar-active~.app-navbar-animated-selector{
-    left:77.2%;
-  }
-
 }
 
 @media screen and (max-width: 500px) {
+
+  .app-logo{
+    display: flex;
+    margin-top: 2rem;
+  }
+
+  .app-header{
+    justify-content: flex-start;
+  }
+
   .app-container{
     flex-direction: column-reverse;
     position: relative;
@@ -193,62 +208,54 @@ a:nth-child(4).navbar-active~.app-navbar-animated-selector{
   .app-navbar{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgb(255, 255, 255);
+    background: #ffffff;
     margin: 0;
-    height: auto;
+    height: 54px;
     width: 100%;
-    border-radius: 2px 2px 0px 0px;
-    transition: all 2s ease;
-
+    z-index: 10000;
+    -webkit-box-shadow: 0px -1px 3px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px -1px 3px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px -1px 3px 0px rgba(0,0,0,0.3);
   }
 
   .app-navbar a{
     justify-self: center;
     margin: 0;
+    padding: 20px;
+    color: #535357;
+  }
+
+  .app-navbar a:hover{
+    color: rgb(172, 172, 172);
+  }
+
+  .app-navbar a:active{
+    color: #4353ff;
   }
 
   .app-navbar .navbar-active{
-    color: rgb(255, 75, 75);
+    color: #4353ff;
     font-weight: bold;
-    border-radius: 2px 2px 0px 0px;
-    transition: all 1s ease;
     width: 100%;
     box-sizing: border-box;
     justify-content: center;
+    border-bottom: solid #4353ff 4px;
+    height: 54px;
   }
 
   .app-navbar .navbar-active:hover{
-    background: rgb(255, 75, 75);
+    color: #4353ff;
+  }
+
+  .app-navbar .navbar-active:active{
+    color: #4353ff;
   }
 
   .app-navbar-animated-selector{
     display: none;
   }
 }
-
-/* 
-position: relative;
-width: 70%;
-display: flex;
-justify-content: space-around;
-align-items: center;
-max-width: 1100px;
-min-width: 900px; 
-
-
-.app-navbar a{
-  font-size: 30pt;
-  color: rgb(172, 172, 172);
-  text-decoration: none;
-  text-transform: uppercase;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 4px;
-  justify-self: center;
-  align-self: center;
-}
-*/

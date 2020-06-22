@@ -5,19 +5,31 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    flex-direction: column;
     padding-bottom: 100px;
     box-sizing: border-box;
-  }
+    padding: 0px 5rem;
+}
+
+.about-left-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.about-right-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 
 .about-container h2{
   color: white;
-  text-align: center;
 }
 
 .about-container p{
   color: rgb(192, 192, 192);
-  text-align: center;
   font-size: 15pt;
   font-weight: 100;
   margin-bottom: 50px;
@@ -28,56 +40,43 @@
   transition: ease-in-out 0.5s;
 }
 
-/* .about-aboutme:hover{
-  width: 60%;
-  transform: scale(1.1);
-} */
-
 .about-whatido{
   width: 60%;
   transition: ease-in-out 0.5s;
 }
 
-/* .about-whatido:hover{
-  width: 60%;
-  transform: scale(1.1);
-} */
 
 .about-skills{
   width: 90%;
   transition: ease-in-out 0.5s;
 }
 
-/* .about-skills:hover{
-  width: 60%;
-  transform: scale(1.1);
-} */
-
 .about-skills h2 {
   margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: 200;
+  margin-bottom: 3rem;
 }
 /*  SKILLS  */
 
 .about-skills-icons{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
 }
 
 .about-skills-icons-dev{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  border-right: white solid 3px;
-  height: 50px;
+  height: fit-content;
   color: white;
-  padding: 20px;
   position: relative;
+  flex-direction: column;
 }
 
 .about-skills-icons img{
-  padding: 10px;
+  padding-right: 2.5rem;
   opacity: 0.8;
 }
 
@@ -86,23 +85,74 @@
   opacity: 1;
 }
 
-.about-skills-icons-subtitle{
+.about-skills-dev-tag{
   position: absolute;
-  top: 90px;
-  color: rgb(68, 68, 68);
-  font-weight: 400;
+  left: -50px;
+  top: calc(60px + 1rem - calc(50px + 2rem)/2);
+  border-top: white solid 2px;
+  border-left: white solid 2px;
+  border-bottom: white solid 2px;
+  height: calc(50px + 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+}
+
+.about-skills-dev-tag-text{
+  font-weight: 100;
+  font-size: 1rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  margin-right: 90px;
+}
+
+.about-skills-icons-dev-top{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+.about-skills-icons-dev-bottom{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 5rem;
 }
 
 .about-skills-icons-design{
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: white solid 3px;
-  height: 50px;
+  height: fit-content;
   color: white;
-  padding: 20px;
   position: relative;
 }
+
+.about-skills-design-tag{
+  position: absolute;
+  left: -50px;
+  border-top: white solid 2px;
+  border-left: white solid 2px;
+  border-bottom: white solid 2px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+}
+
+.about-skills-design-tag-text{
+  font-weight: 100;
+  font-size: 1rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  margin-right: 90px;
+}
+
+
+
 
 .about-skills-icons-resume{
   display: flex;
@@ -110,16 +160,30 @@
   padding: 20px;
 }
 
-.about-skills-icons-resume-button{
+.about-resume-button {
   display: flex;
-  flex-direction: column;
-  background: #3A1616;
-  padding: 17.5px 21px;
-  border-radius: 10px;
-  border: #FB5757 solid 3px;
+  height: 60px;
+  width: 210px;
+  background: #4353ff;
   color: white;
-  font-weight: bold;
+  font-size: 1.2rem;
+  justify-content: space-around;
+  align-items: center;
   cursor: pointer;
+  margin-top: 40px;
+  box-sizing: border-box;
+  padding: 0px 10px;
+  transition: all 0.2s;
+}
+
+.about-resume-button:hover{
+  background: #2b36b6;
+}
+
+.about-resume-button:active{
+  background: #1b2274;
+  color: rgb(219, 219, 219);
+  transform: scale(0.98);
 }
 
 .about-skills-icons-resume-button:hover{

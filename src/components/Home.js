@@ -4,6 +4,8 @@ import Typist from "react-typist";
 import "./Home.css";
 import BottomButton from "./BottomButton";
 import ScrollRedirect from "./ScrollRedirect";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function Home(props) {
   const [isRedirect, setIsRedirect] = useState(null);
@@ -19,13 +21,23 @@ function Home(props) {
 
   return (
     <div className="home-container">
-      <div className="home-typist-wrapper">
+      <div className="home-titles-wrapper">
+        <h1>
+          I'm Tal Maital
+        </h1>
+        <h1>
+          A Front-End Developer
+        </h1>
+        <h2>
+          based in Israel.
+        </h2>
         <Typist className="home-typist">
-          <span className="home-typist-first">Hi, my name is Tal</span>
-          <Typist.Delay ms={800} />
-          <br />
+          <span className="home-typist-first">
+            I'm passionate about creating Beautiful,
+          </span>
+          <br/>
           <span className="home-typist-second">
-            I'm passionate about creating Beautiful, Simple {"&"} Fast Web Apps
+            Simple {"&"} Fast Web Apps
           </span>
         </Typist>
         <div
@@ -36,12 +48,24 @@ function Home(props) {
             }, 500)
           }
         >
-          View Projects
+          View My Projects
+          <FontAwesomeIcon icon={faArrowRight} />
         </div>
+      </div>
+      <div className="home-shapes-wrapper">
+        <div className="home-shapes-background-circle"></div>
+        <div className="home-shapes-square-1"></div>
+        <div className="home-shapes-square-2"></div>
+        <div className="home-shapes-square-3"></div>
+        <div className="home-shapes-square-4"></div>
+        <div className="home-shapes-square-5"></div>
+        <div className="home-shapes-square-6"></div>
+        <div className="home-shapes-square-7"></div>
+        <div className="home-shapes-square-8"></div>
       </div>
       <BottomButton link="projects" title="View Projects" />
       {isRedirect ? <Redirect to="/projects" /> : null}
-      {/* <ScrollRedirect back="/contact" forward="/projects"/> */}
+      <ScrollRedirect back="/contact" forward="/projects"/>
     </div>
   );
 }

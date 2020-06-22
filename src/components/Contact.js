@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import "./Contact.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone, faCopy } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import ReactTooltip from "react-tooltip"
 
@@ -72,15 +72,16 @@ function Contact(props) {
 
   // COPY FUNCTIONS
   const handleCopy = () => {
-    // if (showEmail){
-    //   navigator.clipboard.writeText("tal@tmaital.com")
-    // } else if (showLinkedin){
-    //   navigator.clipboard.writeText("www.linkedin.com/in/talmaital")
-    // } else if(showPhone) {
-    //   navigator.clipboard.writeText("+972522927322")
-    // }
-    setIsCopied(true)
-    setTimeout(() => {setIsCopied(null)},3000)
+
+      // if (showEmail){
+      //   navigator.clipboard.writeText("tal@tmaital.com")
+      // } else if (showLinkedin){
+      //   navigator.clipboard.writeText("www.linkedin.com/in/talmaital")
+      // } else if(showPhone) {
+      //   navigator.clipboard.writeText("+972522927322")
+      // }
+      setIsCopied(true)
+      setTimeout(() => {setIsCopied(null)},3000)
   }
 
   // CONDITIONAL ELEMENTS
@@ -88,7 +89,7 @@ function Contact(props) {
     <div className="contact-popup">
       <div className="contact-popup-title">    
         <h3 data-tip="Click to Copy" onClick={handleCopy}>tal@tmaital.com</h3>
-        <ReactTooltip effect="solid" delayShow="100" place="bottom" backgroundColor="black" className="contact-tooltip"/>
+        {isCopied ? null : <ReactTooltip effect="solid" delayShow={100} place="bottom" backgroundColor="black" className="contact-tooltip"/>}
       </div>
       <div className="contact-popup-action" onClick={handleEmail}>
         Email
@@ -99,7 +100,7 @@ function Contact(props) {
     <div className="contact-popup">
       <div className="contact-popup-title">
         <h3 data-tip="Click to Copy" onClick={handleCopy}>linkedin.com/in/talmaital</h3>
-        <ReactTooltip effect="solid" delayShow="100" place="bottom" backgroundColor="black" className="contact-tooltip"/>
+        {isCopied ? null : <ReactTooltip effect="solid" delayShow={100} place="bottom" backgroundColor="black" className="contact-tooltip"/>}
       </div>
       <div className="contact-popup-action" onClick={handleLinkedin}>
         View
@@ -110,7 +111,7 @@ function Contact(props) {
   <div className="contact-popup">
     <div className="contact-popup-title">    
       <h3 data-tip="Click to Copy" onClick={handleCopy}>+972-(0)52-292-6522</h3>
-      <ReactTooltip effect="solid" delayShow="100" place="bottom" backgroundColor="black" className="contact-tooltip"/>
+      {isCopied ? null : <ReactTooltip effect="solid" delayShow={100} place="bottom" backgroundColor="black" className="contact-tooltip"/>}
     </div>
     <div className="contact-popup-action" onClick={handlePhone}>
         Call
@@ -126,7 +127,8 @@ function Contact(props) {
   return (
     <div className="contact-container">
       <div className="contact-items" >
-        <h2 className="contact-items-title">Get In Touch</h2>
+        <h2 className="contact-items-subtitle">Get in touch</h2>
+        <h2 className="contact-items-title">Lets work together</h2>
         <div className="contact-items-buttons">
           <div className="contact-items-email" onClick={handleClickEmail}>
             <FontAwesomeIcon icon={faEnvelope}/>
@@ -144,7 +146,7 @@ function Contact(props) {
       </div>
       <BottomButton link="home" title="Home"/>
       {isCopied ? copiedNotification : null}
-      {/* <ScrollRedirect back="/about" forward="/home"/> */}
+      <ScrollRedirect back="/about" forward="/home"/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./Projects.css";
 import BottomButton from "./BottomButton";
 import ScrollRedirect from "./ScrollRedirect";
@@ -19,52 +19,19 @@ function Projects(props) {
     gitURL={item.gitURL}
     webURL={item.webURL}
     description={item.description}
+    techUsed={item.techUsed}
   />
   )
 
   return (
     <div className="projects-container">
-      <BottomButton link="about" title="About Me" />
-      {/* <ScrollRedirect back="/home" forward="/about"/> */}
-      <div className="projects-items-container">
-        {/* <ProjectItem
-          imgURL={streamhub}
-          gitURL={null}
-          webURL={null}
-          title={"StreamHub"}
-        />
-        <ProjectItem
-          imgURL={gateapp}
-          gitURL={null}
-          URL={null}
-          title={"GateApp Dashboard"}
-        />
-        <ProjectItem
-          imgURL={calculator}
-          gitURL={null}
-          webURL={null}
-          title={"Responsive Calculator"}
-        />
-        <ProjectItem
-          imgURL={streamhub}
-          gitURL={null}
-          webURL={null}
-          title={"StreamHub"}
-        />
-        <ProjectItem
-          imgURL={gateapp}
-          gitURL={null}
-          webURL={null}
-          title={"GateApp Dashboard"}
-        />
-        <ProjectItem
-          imgURL={calculator}
-          gitURL={null}
-          webURL={null}
-          title={"Responsive Calculator"}
-        /> */}
-        {projectItems}
+      <ScrollRedirect back="/home" forward="/about"/>
+      <div className="projects-scroll-wrapper">
+        <div className="projects-items-container">
+          {projectItems}
+        </div>
       </div>
+      <BottomButton link="about" title="About Me" />
     </div>
   );
 }

@@ -19,11 +19,16 @@ justify-content: center;
 align-items: center;
 }
 
+.contact-items-subtitle{
+  color: rgb(146, 155, 167);
+  font-size: 2rem;
+}
+
 .contact-items-title{
   color: white;
   text-transform: none;
-  font-size: 30pt;
-  margin-bottom: 30px;
+  font-size: 3rem;
+  margin-bottom: 3rem;
 }
 
 .contact-items-buttons{
@@ -55,7 +60,6 @@ align-items: center;
   font-size: 25px;
   background: #241711;
   border: solid #FC9D71 3px;
-  border-radius: 10px;
   width: 60px;
   height: 60px;
   cursor: pointer;
@@ -83,7 +87,6 @@ align-items: center;
   font-size: 25px;
   background: #001d2c;
   border: solid #0274B3 3px;
-  border-radius: 10px;
   width: 60px;
   height: 60px;
   cursor: pointer;
@@ -112,7 +115,6 @@ align-items: center;
   font-size: 25px;
   background: rgb(19, 42, 29);
   border: solid rgb(97, 251, 161) 3px;
-  border-radius: 10px;
   width: 60px;
   height: 60px;
   cursor: pointer;
@@ -144,7 +146,6 @@ align-items: center;
   font-weight: bold;
   background: rgba(255, 255, 255, 0.082);
   align-items: center;
-  border-radius: 5px;
 }
 
 .contact-popup-title{
@@ -188,7 +189,6 @@ align-items: center;
   padding-left: 15px;
   padding-right: 15px;
   box-sizing: border-box;
-  border-radius: 0px 5px 5px 0px;
 }
 
 .contact-popup-action:hover{
@@ -254,7 +254,7 @@ align-items: center;
 } */
 
 .contact-tooltip{
-  display: none;
+  display: flex;
 }
 
 .contact-popup::after{

@@ -1,5 +1,5 @@
 // Dependencies Imports
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
   BrowserRouter, 
   Route, 
@@ -22,17 +22,23 @@ function App() {
   
   return (
     <div className="app-container">
-      <div className='app-background-stars'></div>
+      {/* <div className='app-background-stars'></div>
       <div className='app-background-stars2'></div>
-      <div className='app-background-stars3'></div>
+      <div className='app-background-stars3'></div> */}
       <BrowserRouter>
-        <div className="app-navbar">
+      <header className="app-header">
+        <div className="app-logo">
+          <div></div>
+          <h1>Tal.</h1>
+        </div>
+        <nav className="app-navbar">
           <Link className={page === "home" ? "navbar-active" : null} to="/home">HOME</Link>
           <Link className={page === "projects" ? "navbar-active" : null} to="/projects">PROJECTS</Link>
           <Link className={page === "about" ? "navbar-active" : null} to="/about">ABOUT</Link>
           <Link className={page === "contact" ? "navbar-active" : null} to="/contact">CONTACT</Link>
           <div className="app-navbar-animated-selector app-start-selector"></div>
-        </div>
+        </nav>
+      </header>
         <Switch>
           <Route exact path="/home" render={(props) => <Home {...props} setPage={setPage}  />}/>
           <Route exact path="/projects" render={(props) => <Projects {...props} setPage={setPage} />}/>
